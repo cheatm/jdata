@@ -1,5 +1,8 @@
 FROM daocloud.io/xingetouzi/python3-cron:latest
 
+RUN apt-get update
+RUN apt-get install -y cron libsnappy-dev
+
 WORKDIR /app
 ENV WORK=/app
 ENV PYTHONPATH=/app:$PYTHONPATH
