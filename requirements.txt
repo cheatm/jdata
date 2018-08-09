@@ -1,2 +1,3 @@
 pymongo
 jaqs
+click==6.7
