@@ -1,0 +1,16 @@
+version: "3"
+services:
+  jaqsd:
+    container_name: jaqsd
+    build: .
+    image: jaqsd:new
+    volumes:
+      - "./logs:/logs"
+    environment:
+      # ADDR: 
+      # USERNAME: 
+      # PASSWORD: 
+      # MONGODB_URI: 
+      # FINANCE_WEEKLY:
+      # FINANCE_DAILY:
+      # LB: 
