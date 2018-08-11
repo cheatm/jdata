@@ -63,17 +63,13 @@ class TaskIndex(object):
                 fail += 1
                 logging.error("Kline create index | %s | %s | %s", symbol, date, e)
             else:
+                logging.debug("Kline create index | %s | %s | %s", symbol, date, e)
                 if r:
                     suc += 1
                 else:
                     dup += 1
         logging.warning("Kline create index | OK: %s | DUP: %s | FAIL: %s", suc, dup, fail)
     
-
-class EmptyData(Exception):
-
-    pass
-
 
 class DailyTaskExecutor(object):
 
