@@ -6,7 +6,7 @@ services:
     image: jaqsd:new
     volumes:
       - "./logs:/logs"
-    environment:
+    # environment:
       # ADDR: 
       # USERNAME: 
       # PASSWORD: 
