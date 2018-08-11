@@ -7,3 +7,4 @@ TASK = os.environ.get("KLINE_TASK", "log.kline_task")
 
 DAILY_TAG = "D"
 BAR_TAG = "1M"
+STATUS_TAG = "T"

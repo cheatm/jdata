@@ -22,6 +22,13 @@ def get_api(username=None, password=None):
         return globals()["API"]
 
 
+def close():
+    api = globals().get("API", None)
+    if api is not None:
+        api.logout()
+        api.close()
+
+
 def query(*args, **kwargs):
     data, msg = get_api().query(*args, **kwargs)
     if msg == "0,":
@@ -36,7 +43,7 @@ def get_A_stocks():
 
 
 def get_A_indexes():
-    data = query("jz.instrumentInfo", "market=SZ,SH&inst_type=100", "symbol")
+    data = query("jz.instrumentInfo", "market=SZ,SH&inst_type=100&status=1", "symbol")
     return data["symbol"]
 
 
@@ -50,10 +57,24 @@ def get_api_params(view):
     return data
 
 
+def daily(symbols, start, end):
+    data, msg = get_api().daily(symbols, start, end)
+    if msg == "0,":
+        return data
+    else:
+        raise Exception(msg)
+
+
+def bar(symbols, trade_date):
+    data, msg = get_api().bar(symbols, trade_date=trade_date)
+    if msg == "0,":
+        return data
+    else:
+        raise Exception(msg)
+
+
 def main():
-    # data = get_api_params("lb.finIndicator")
-    data = query("help.apiList")
-    print(data)
+    frame = get_A_stocks()
 
 
 if __name__ == '__main__':
