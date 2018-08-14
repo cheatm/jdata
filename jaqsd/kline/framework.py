@@ -63,7 +63,7 @@ class TaskIndex(object):
                 fail += 1
                 logging.error("Kline create index | %s | %s | %s", symbol, date, e)
             else:
-                logging.debug("Kline create index | %s | %s | %s", symbol, date, e)
+                logging.debug("Kline create index | %s | %s | %s", symbol, date, r)
                 if r:
                     suc += 1
                 else:
